@@ -4,12 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import java.util.List;
-
-import okhttp3.internal.concurrent.Task;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
