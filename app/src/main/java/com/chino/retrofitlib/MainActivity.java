@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
        jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
         //GetPost(new Integer[]{1,2,3},"id","desc");
-        GetComments("2");
+        GetComments(2);
     }
 
     private void GetPost(Integer[] userId,String sort,String order) {
@@ -64,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void GetComments(String id) {
-        Call<List<Comments>> call = jsonPlaceHolderAPI.getComments(id);
+    private void GetComments(int id) {
+        //Call<List<Comments>> call = jsonPlaceHolderAPI.getComments(id);
+        Call<List<Comments>> call = jsonPlaceHolderAPI.getComments("/posts/2/comments");
         call.enqueue(new Callback<List<Comments>>() {
             @Override
             public void onResponse(Call<List<Comments>> call, Response<List<Comments>> response) {
