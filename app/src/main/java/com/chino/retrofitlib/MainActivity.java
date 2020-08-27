@@ -18,13 +18,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     TextView result;
-
+    JsonPlaceHolderAPI jsonPlaceHolderAPI;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         result = findViewById(R.id.text_result);
-        GetPost(new Integer[]{1,2,3},"id","desc");
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+       jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
+        //GetPost(new Integer[]{1,2,3},"id","desc");
+        GetComments("2");
     }
 
     private void GetPost(Integer[] userId,String sort,String order) {
@@ -32,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
         params.put("userId","1");
         params.put("_sort","id");
         params.put("_order","desc");
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        JsonPlaceHolderAPI jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
         Call<List<Post>> call = jsonPlaceHolderAPI.getPosts(params);
         call.enqueue(new Callback<List<Post>>() {
             @Override
@@ -63,4 +63,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void GetComments(String id) {
+        Call<List<Comments>> call = jsonPlaceHolderAPI.getComments(id);
+        call.enqueue(new Callback<List<Comments>>() {
+            @Override
+            public void onResponse(Call<List<Comments>> call, Response<List<Comments>> response) {
+                if (!response.isSuccessful()) {
+                    result.setText("Error:" + response.code());
+                    return;
+                }
+                List<Comments> body = response.body();
+                for (Comments comments : body) {
+                    String content = "";
+                    content += "\n\nID : " + comments.getId();
+                    content += "\nUserID : " + comments.getPostId();
+                    content += "\nname : " + comments.getName();
+                    content += "\nemail : " + comments.getEmail();
+                    result.append(content);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Comments>> call, Throwable t) {
+
+            }
+        });
+    }
+
 }
