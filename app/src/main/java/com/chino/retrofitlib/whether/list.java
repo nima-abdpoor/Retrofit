@@ -3,7 +3,6 @@
 
 package com.chino.retrofitlib.whether;
 
-import com.chino.retrofitlib.Weather;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
