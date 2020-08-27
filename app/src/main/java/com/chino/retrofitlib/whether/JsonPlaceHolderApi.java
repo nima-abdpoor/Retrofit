@@ -1,6 +1,4 @@
-package com.chino.retrofitlib;
-
-import java.util.List;
+package com.chino.retrofitlib.whether;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -1,9 +1,10 @@
-package com.chino.retrofitlib;
+package com.chino.retrofitlib.whether;
 
+import com.chino.retrofitlib.whether.City;
+import com.chino.retrofitlib.whether.list;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Post {
@@ -19,7 +20,7 @@ public class Post {
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<list> list = null;
+    private java.util.List<com.chino.retrofitlib.whether.list> list = null;
     @SerializedName("city")
     @Expose
     private City city;

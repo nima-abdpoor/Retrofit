@@ -1,4 +1,4 @@
-package com.chino.retrofitlib;
+package com.chino.retrofitlib.whether;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
