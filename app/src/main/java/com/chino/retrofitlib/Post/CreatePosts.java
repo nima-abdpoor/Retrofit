@@ -4,6 +4,9 @@ import com.chino.retrofitlib.Get.Post;
 import com.chino.retrofitlib.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.MainActivity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,9 +18,11 @@ public class CreatePosts {
         this.jsonPlaceHolderAPI = jsonPlaceHolderAPI;
     }
     public void Create(){
-        Call<Post> postCall=jsonPlaceHolderAPI.createPost(2,
-                "android developer",
-                "nima abdpoor");
+        Map<String, String> fields =new HashMap<>();
+        fields.put("userId","2");
+        fields.put("title","android developer");
+        fields.put("body","nima abdpoor");
+        Call<Post> postCall=jsonPlaceHolderAPI.createPost(fields);
         postCall.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
