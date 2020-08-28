@@ -15,9 +15,9 @@ public class CreatePosts {
         this.jsonPlaceHolderAPI = jsonPlaceHolderAPI;
     }
     public void Create(){
-        Call<Post> postCall=jsonPlaceHolderAPI.createPost(new Post(2,
+        Call<Post> postCall=jsonPlaceHolderAPI.createPost(2,
                 "android developer",
-                "nima abdpoor"));
+                "nima abdpoor");
         postCall.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
