@@ -1,7 +1,6 @@
 package com.chino.retrofitlib;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,11 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chino.retrofitlib.Get.Comments;
 import com.chino.retrofitlib.Get.GetObserver;
 import com.chino.retrofitlib.Get.GetPost;
-import com.chino.retrofitlib.Get.Post;
+import com.chino.retrofitlib.Post.CreatePosts;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,9 +31,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         result = findViewById(R.id.text_result);
         prepreation();
-        Get();
+        //Get();
         //GetPost(new Integer[]{1,2,3},"id","desc");
         //GetComments(2);
+        CreatePost();
+    }
+
+    private void CreatePost() {
+        CreatePosts posts =new CreatePosts(this.jsonPlaceHolderAPI);
+        posts.Create();
     }
 
     private void prepreation() {
