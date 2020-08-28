@@ -1,5 +1,8 @@
 package com.chino.retrofitlib;
 
+import com.chino.retrofitlib.Get.Comments;
+import com.chino.retrofitlib.Get.Post;
+
 import java.util.List;
 import java.util.Map;
 
