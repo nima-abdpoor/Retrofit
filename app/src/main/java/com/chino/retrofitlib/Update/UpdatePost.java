@@ -1,6 +1,8 @@
-package com.chino.retrofitlib;
+package com.chino.retrofitlib.Update;
 
 import com.chino.retrofitlib.Get.Post;
+import com.chino.retrofitlib.JsonPlaceHolderAPI;
+import com.chino.retrofitlib.MainActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;

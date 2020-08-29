@@ -5,10 +5,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.chino.retrofitlib.Delete.DeletePost;
 import com.chino.retrofitlib.Get.Comments;
 import com.chino.retrofitlib.Get.GetObserver;
 import com.chino.retrofitlib.Get.GetPost;
 import com.chino.retrofitlib.Post.CreatePosts;
+import com.chino.retrofitlib.Update.UpdatePost;
 
 import java.util.List;
 
@@ -35,7 +37,13 @@ public class MainActivity extends AppCompatActivity {
         //GetPost(new Integer[]{1,2,3},"id","desc");
         //GetComments(2);
         //CreatePost();
-        UpdatePost();
+        //UpdatePost();
+        DeletePost();
+    }
+
+    private void DeletePost() {
+        DeletePost deleltePost=new DeletePost(jsonPlaceHolderAPI);
+        deleltePost.delete();
     }
 
     private void UpdatePost() {
