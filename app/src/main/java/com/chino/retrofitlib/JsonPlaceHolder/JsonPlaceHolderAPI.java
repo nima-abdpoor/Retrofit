@@ -14,6 +14,7 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.HeaderMap;
 import retrofit2.http.Headers;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
@@ -63,8 +64,12 @@ public interface JsonPlaceHolderAPI {
                         @Path("id") int id,
                         @Body Post post);
 
+
     @PATCH("/posts/{id}")
-    Call<Post> putPath(@Path("id") int id, @Body Post post);
+    Call<Post> putPath(
+            @HeaderMap Map<String , String> headers,
+            @Path("id") int id,
+            @Body Post post);
 
     @DELETE("/posts/{id}")
     Call<Void> delete(@Path("id") int id);
