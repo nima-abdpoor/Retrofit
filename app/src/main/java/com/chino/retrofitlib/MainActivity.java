@@ -13,9 +13,14 @@ import com.chino.retrofitlib.JsonPlaceHolder.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.Post.CreatePosts;
 import com.chino.retrofitlib.Update.UpdatePost;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.List;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         prepreation();
         //Get();
         //GetPost(new Integer[]{1,2,3},"id","desc");
-        //GetComments(2);
+        GetComments(2);
         //CreatePost();
-        UpdatePost();
+        //UpdatePost();
         //DeletePost();
     }
 
@@ -63,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
         HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client= new OkHttpClient.Builder()
+                .addInterceptor(chain -> {
+                    Request originalRequest =chain.request();
+                    Request request = originalRequest.newBuilder()
+                            .addHeader("salam","nima&maryam")
+                            .build();
+                    return chain.proceed(request);
+                })
                 .addInterceptor(loggingInterceptor)
                 .build();
 
