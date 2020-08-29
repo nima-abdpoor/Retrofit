@@ -1,9 +1,6 @@
 package com.chino.retrofitlib.Get;
 
-import android.util.Log;
-
-import com.chino.retrofitlib.JsonPlaceHolderAPI;
-import com.chino.retrofitlib.MainActivity;
+import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
 
 import java.util.HashMap;
 import java.util.List;

@@ -9,11 +9,15 @@ import com.chino.retrofitlib.Delete.DeletePost;
 import com.chino.retrofitlib.Get.Comments;
 import com.chino.retrofitlib.Get.GetObserver;
 import com.chino.retrofitlib.Get.GetPost;
+import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.Post.CreatePosts;
 import com.chino.retrofitlib.Update.UpdatePost;
 
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okhttp3.logging.LoggingEventListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         //GetPost(new Integer[]{1,2,3},"id","desc");
         //GetComments(2);
         //CreatePost();
-        //UpdatePost();
-        DeletePost();
+        UpdatePost();
+        //DeletePost();
     }
 
     private void DeletePost() {
@@ -57,9 +61,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepreation() {
+        HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client= new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build();
         jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
     }

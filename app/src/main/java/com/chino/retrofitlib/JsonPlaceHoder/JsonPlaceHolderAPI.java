@@ -1,4 +1,4 @@
-package com.chino.retrofitlib;
+package com.chino.retrofitlib.JsonPlaceHoder;
 
 import com.chino.retrofitlib.Get.Comments;
 import com.chino.retrofitlib.Get.Post;
@@ -56,10 +56,10 @@ public interface JsonPlaceHolderAPI {
     Call<Post> createPost(@FieldMap Map<String, String> fields);
 
     @PUT("/posts/{id}")
-    Call<Post> putPosts(@Path("id") int id,@Body Post post);
+    Call<Post> putPosts(@Path("id") int id, @Body Post post);
 
     @PATCH("/posts/{id}")
-    Call<Post> putPath(@Path("id") int id,@Body Post post);
+    Call<Post> putPath(@Path("id") int id, @Body Post post);
 
     @DELETE("/posts/{id}")
     Call<Void> delete(@Path("id") int id);

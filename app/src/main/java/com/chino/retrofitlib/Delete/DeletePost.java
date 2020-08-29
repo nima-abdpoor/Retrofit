@@ -1,7 +1,7 @@
 package com.chino.retrofitlib.Delete;
 
 
-import com.chino.retrofitlib.JsonPlaceHolderAPI;
+import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.MainActivity;
 
 import retrofit2.Call;

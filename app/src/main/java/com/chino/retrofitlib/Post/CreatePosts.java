@@ -1,7 +1,7 @@
 package com.chino.retrofitlib.Post;
 
 import com.chino.retrofitlib.Get.Post;
-import com.chino.retrofitlib.JsonPlaceHolderAPI;
+import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.MainActivity;
 
 import java.util.HashMap;
