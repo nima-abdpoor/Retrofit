@@ -1,7 +1,5 @@
 package com.chino.retrofitlib.Get;
 
-import android.util.Log;
-
 import com.chino.retrofitlib.MainActivity;
 
 public class GetObserver {

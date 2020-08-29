@@ -34,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
         //Get();
         //GetPost(new Integer[]{1,2,3},"id","desc");
         //GetComments(2);
-        CreatePost();
+        //CreatePost();
+        UpdatePost();
+    }
+
+    private void UpdatePost() {
+        UpdatePost updatePost=new UpdatePost(jsonPlaceHolderAPI);
+        updatePost.update();
     }
 
     private void CreatePost() {
