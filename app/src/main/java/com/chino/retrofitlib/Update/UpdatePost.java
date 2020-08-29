@@ -1,7 +1,7 @@
 package com.chino.retrofitlib.Update;
 
 import com.chino.retrofitlib.Get.Post;
-import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
+import com.chino.retrofitlib.JsonPlaceHolder.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.MainActivity;
 
 import retrofit2.Call;
@@ -17,7 +17,7 @@ public class UpdatePost {
 
     public void update() {
         Post post = new Post(2, null, "nima");
-        Call<Post> call = jsonPlaceHolderAPI.putPosts(12, post);
+        Call<Post> call = jsonPlaceHolderAPI.putPosts("abc",12, post);
         call.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {

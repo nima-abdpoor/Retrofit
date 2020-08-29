@@ -1,4 +1,4 @@
-package com.chino.retrofitlib.JsonPlaceHoder;
+package com.chino.retrofitlib.JsonPlaceHolder;
 
 import com.chino.retrofitlib.Get.Comments;
 import com.chino.retrofitlib.Get.Post;
@@ -13,6 +13,8 @@ import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -55,8 +57,11 @@ public interface JsonPlaceHolderAPI {
     @POST("posts")
     Call<Post> createPost(@FieldMap Map<String, String> fields);
 
+    @Headers({"Static-Header:nima","staci-Header2:abdpoor"})
     @PUT("/posts/{id}")
-    Call<Post> putPosts(@Path("id") int id, @Body Post post);
+    Call<Post> putPosts(@Header("dynamic-header") String dynamicHeader ,
+                        @Path("id") int id,
+                        @Body Post post);
 
     @PATCH("/posts/{id}")
     Call<Post> putPath(@Path("id") int id, @Body Post post);

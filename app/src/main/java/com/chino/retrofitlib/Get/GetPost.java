@@ -1,6 +1,6 @@
 package com.chino.retrofitlib.Get;
 
-import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
+import com.chino.retrofitlib.JsonPlaceHolder.JsonPlaceHolderAPI;
 
 import java.util.HashMap;
 import java.util.List;

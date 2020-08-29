@@ -9,7 +9,7 @@ import com.chino.retrofitlib.Delete.DeletePost;
 import com.chino.retrofitlib.Get.Comments;
 import com.chino.retrofitlib.Get.GetObserver;
 import com.chino.retrofitlib.Get.GetPost;
-import com.chino.retrofitlib.JsonPlaceHoder.JsonPlaceHolderAPI;
+import com.chino.retrofitlib.JsonPlaceHolder.JsonPlaceHolderAPI;
 import com.chino.retrofitlib.Post.CreatePosts;
 import com.chino.retrofitlib.Update.UpdatePost;
 
@@ -17,7 +17,6 @@ import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import okhttp3.logging.LoggingEventListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
